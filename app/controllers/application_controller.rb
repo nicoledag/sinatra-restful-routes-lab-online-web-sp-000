@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes' do
     @recipes = Recipe.all
+
     erb :index
   end
 
@@ -17,7 +18,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    @recipe = recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
     
   end
 
